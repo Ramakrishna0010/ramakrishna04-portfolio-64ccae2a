@@ -58,10 +58,7 @@ export function Contact() {
     }
   }
 
-    } finally {
-      setSending(false);
-    }
-  }
+
 
 
   return (
