@@ -28,12 +28,12 @@ const groups = [
   },
   {
     Icon: GitBranch,
-    title: "Development Tools",
-    items: ["Git", "GitHub", "Swagger", "Postman", "Visual Studio / VS Code"],
+    title: "Tools",
+    items: ["Git", "GitHub", "Swagger", "Postman", "Visual Studio", "VS Code"],
   },
   {
     Icon: Cpu,
-    title: "Engineering Concepts",
+    title: "Engineering",
     items: [
       "OOP",
       "SOLID Principles",
@@ -53,7 +53,9 @@ const expanding = [
   "Prompt Engineering",
   "LangChain",
   "RAG",
+  "Azure",
 ];
+
 
 export function Skills() {
   return (
