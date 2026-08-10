@@ -57,7 +57,7 @@ export function Contact() {
           subject: values.subject || "Portfolio enquiry",
           message: values.message,
           to_email: "ramakrishnamettu4@gmail.com",
-several: "",
+
         },
         { publicKey: EMAILJS_PUBLIC_KEY },
       );
