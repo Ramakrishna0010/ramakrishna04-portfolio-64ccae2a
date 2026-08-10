@@ -161,14 +161,15 @@ export function Contact() {
 
               <button
                 type="submit"
-                className="glow-ring mt-6 w-full rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform duration-200 hover:-translate-y-0.5 sm:w-auto sm:px-8"
+                disabled={sending}
+                className="glow-ring mt-6 w-full rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform duration-200 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 sm:w-auto sm:px-8"
               >
-                Send Message
+                {sending ? "Sending…" : "Send Message"}
               </button>
               <p className="mt-3 text-xs text-muted-foreground">
-                No mail backend is connected yet — submitting opens your email client with the
-                message pre-filled. Ready to wire up to Formspree, EmailJS or a custom backend.
+                Your message is delivered straight to my inbox. I usually reply within a day.
               </p>
+
             </form>
           </Reveal>
         </div>
