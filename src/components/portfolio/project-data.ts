@@ -1,27 +1,36 @@
+// Add the public repository URL here to enable the GitHub button.
+// Leave as null until a real URL is available (no placeholder links).
+export const githubRepoUrl: string | null = null;
+
+// Add a real deployed URL here to show a "Live Demo" button. Leave null otherwise.
+export const liveDemoUrl: string | null = null;
+
+export const problem =
+  "Managing customers, vehicles, washers, orders and payments requires centralized application management.";
+
+export const solution =
+  "A full-stack web application that centralizes car-wash operations through an Angular frontend and ASP.NET Core Web API backend.";
+
 export const architecture = [
   { label: "Angular Frontend", detail: "SPA · TypeScript · HTML/CSS" },
   { label: "ASP.NET Core Web API", detail: "REST controllers · JWT auth" },
-  { label: "Services / Business Logic", detail: "C# · role-based rules" },
+  { label: "Business Logic / Services", detail: "C# · role-based rules" },
   { label: "Entity Framework Core", detail: "LINQ · migrations" },
   { label: "MySQL", detail: "Relational data store" },
 ];
 
+
 export const stack = {
-  Backend: [
-    "ASP.NET Core Web API",
-    "C#",
-    "Entity Framework Core",
-    "MySQL",
-    "JWT Authentication",
-    "Role-Based Authorization",
-  ],
+  Backend: ["ASP.NET Core Web API", "C#", "Entity Framework Core", "MySQL"],
   Frontend: ["Angular", "TypeScript", "HTML", "CSS"],
-  Additional: ["REST API", "MailKit", "Swagger", "Postman"],
+  Security: ["JWT Authentication", "Role-Based Authorization"],
+  Additional: ["Swagger", "Postman", "MailKit"],
 };
+
 
 export const features = [
   "User authentication",
-  "JWT-based authorization",
+  "JWT authorization",
   "Role-based access",
   "Customer management",
   "Vehicle management",

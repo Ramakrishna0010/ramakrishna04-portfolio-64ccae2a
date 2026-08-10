@@ -4,25 +4,27 @@ import { Reveal, SectionHeading } from "./Reveal";
 const highlights = [
   {
     Icon: Layers,
-    title: ".NET full-stack development",
-    body: "Building applications end to end with ASP.NET Core and Angular, from data model to UI.",
+    title: "Full-stack .NET",
+    body: "ASP.NET Core + Angular applications, built end to end.",
   },
   {
     Icon: Braces,
-    title: "Backend & API engineering",
-    body: "Designing REST APIs with C#, Web API and Entity Framework Core, documented via Swagger.",
+    title: "Backend & APIs",
+    body: "REST APIs in C# with Web API and Entity Framework Core.",
   },
   {
     Icon: Database,
-    title: "Database integration",
-    body: "Relational schema design and data access across SQL Server and MySQL using EF Core and LINQ.",
+    title: "Databases",
+    body: "SQL schema design and data access with EF Core and LINQ.",
   },
   {
     Icon: ShieldCheck,
-    title: "Auth & clean code",
-    body: "JWT authentication with role-based authorization, guided by OOP and SOLID principles.",
+    title: "Secure & clean code",
+    body: "JWT authentication, role-based authorization, OOP and SOLID.",
   },
 ];
+
+const learning = ["Java", "Spring Boot", "Python", "Generative AI"];
 
 const stats = [
   { value: "1+ Year", label: "Professional Experience" },
@@ -31,6 +33,7 @@ const stats = [
   { value: "Problem Solver", label: "DSA & Software Engineering" },
 ];
 
+
 export function About() {
   return (
     <section id="about" className="relative py-20 sm:py-28">
@@ -38,7 +41,7 @@ export function About() {
         <SectionHeading
           eyebrow="About"
           title="A Software Engineer focused on practical, maintainable systems."
-          description="I work across the .NET stack — writing C# services and Web APIs, modelling data with Entity Framework Core, and building Angular frontends that consume them. My focus is on readable code, sound architecture and secure access control, alongside continuous learning in Java, Spring Boot and Generative AI."
+          description="I build across the .NET stack: C# services and REST APIs with ASP.NET Core, data access with Entity Framework Core over SQL, and Angular frontends — secured with JWT authentication and role-based authorization, and written with OOP and SOLID principles in mind."
         />
 
         <div className="mt-12 grid gap-4 sm:grid-cols-2">
@@ -52,6 +55,23 @@ export function About() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal className="mt-4">
+          <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-dashed border-violet/45 bg-violet/5 p-5">
+            <span className="font-mono text-[10px] tracking-[0.18em] text-muted-foreground uppercase">
+              Currently expanding into
+            </span>
+            {learning.map((l) => (
+              <span
+                key={l}
+                className="rounded-lg border border-violet/30 bg-violet/10 px-2.5 py-1 text-xs text-foreground/85"
+              >
+                {l}
+              </span>
+            ))}
+          </div>
+        </Reveal>
+
 
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((s, i) => (

@@ -16,9 +16,10 @@ const repos = [
 
 export function EducationAndPresence() {
   return (
-    <section className="relative py-20 sm:py-28">
+    <section id="education" className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5">
         <SectionHeading eyebrow="Education" title="Academic background." />
+
 
         <Reveal className="mt-10">
           <article className="glass-card grid gap-5 p-6 sm:grid-cols-[auto_minmax(0,1fr)] sm:p-8">
@@ -50,16 +51,17 @@ export function EducationAndPresence() {
             {[
               {
                 Icon: Github,
-                label: "GitHub",
-                handle: "@Ramakrishna0010",
+                label: "View GitHub",
+                handle: "Ramakrishna0010",
                 href: "https://github.com/Ramakrishna0010",
               },
               {
                 Icon: Linkedin,
-                label: "LinkedIn",
+                label: "View LinkedIn",
                 handle: "mettu-ramakrishna-reddy",
                 href: "https://www.linkedin.com/in/mettu-ramakrishna-reddy",
               },
+
             ].map((p, i) => (
               <Reveal key={p.label} delay={i * 70}>
                 <a

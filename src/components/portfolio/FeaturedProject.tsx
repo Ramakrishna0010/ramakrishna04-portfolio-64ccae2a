@@ -1,7 +1,15 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, Check } from "lucide-react";
+import { ArrowUpRight, Check, Github } from "lucide-react";
 import { Reveal, SectionHeading } from "./Reveal";
-import { architecture, features, stack } from "./project-data";
+import {
+  architecture,
+  features,
+  githubRepoUrl,
+  liveDemoUrl,
+  problem,
+  solution,
+  stack,
+} from "./project-data";
 
 export function FeaturedProject() {
   return (
@@ -13,7 +21,24 @@ export function FeaturedProject() {
           description="A full-stack web application designed to manage car wash operations — customers, vehicles, orders, payments, users and washers."
         />
 
-        <Reveal className="mt-12">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+          {[
+            { label: "Problem", body: problem },
+            { label: "Solution", body: solution },
+          ].map((b, i) => (
+            <Reveal key={b.label} delay={i * 70}>
+              <article className="glass-card h-full p-6">
+                <h3 className="font-mono text-[11px] tracking-[0.18em] text-muted-foreground uppercase">
+                  {b.label}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{b.body}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal className="mt-4">
+
           <article className="glass-card overflow-hidden">
             <div className="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
               <div className="border-b border-border p-6 sm:p-8 lg:border-r lg:border-b-0">
@@ -71,16 +96,41 @@ export function FeaturedProject() {
                   ))}
                 </ul>
 
-                <Link
-                  to="/projects/car-wash-management-system"
-                  className="glow-ring group mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform duration-200 hover:-translate-y-0.5"
-                >
-                  Explore Case Study
-                  <ArrowUpRight
-                    size={16}
-                    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  />
-                </Link>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link
+                    to="/projects/car-wash-management-system"
+                    className="glow-ring group inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform duration-200 hover:-translate-y-0.5"
+                  >
+                    View Project
+                    <ArrowUpRight
+                      size={16}
+                      className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    />
+                  </Link>
+                  {githubRepoUrl ? (
+                    <a
+                      href={githubRepoUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-2 px-5 py-3 text-sm font-semibold transition-colors hover:border-primary/50 hover:bg-accent"
+                    >
+                      <Github size={16} />
+                      GitHub
+                    </a>
+                  ) : null}
+                  {liveDemoUrl ? (
+                    <a
+                      href={liveDemoUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-2 px-5 py-3 text-sm font-semibold transition-colors hover:border-primary/50 hover:bg-accent"
+                    >
+                      Live Demo
+                      <ArrowUpRight size={16} />
+                    </a>
+                  ) : null}
+                </div>
+
               </div>
             </div>
           </article>

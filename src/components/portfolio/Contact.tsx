@@ -46,17 +46,18 @@ export function Contact() {
     setSending(true);
     try {
       await send({ data: values });
-      toast.success("Message sent", { description: "Thanks — I'll get back to you soon." });
+      toast.success("Message sent successfully.");
       setValues({ name: "", email: "", subject: "", message: "" });
     } catch (err) {
       console.error("Contact form send failed", err);
-      toast.error("Couldn't send your message", {
-        description: "Please try again, or email ramakrishnamettu4@gmail.com directly.",
+      toast.error("Failed to send. Please try again or email me directly.", {
+        description: "ramakrishnamettu4@gmail.com",
       });
     } finally {
       setSending(false);
     }
   }
+
 
 
 
@@ -152,11 +153,9 @@ export function Contact() {
                 disabled={sending}
                 className="glow-ring mt-6 w-full rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform duration-200 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 sm:w-auto sm:px-8"
               >
-                {sending ? "Sending…" : "Send Message"}
+                {sending ? "Sending..." : "Send Message"}
               </button>
-              <p className="mt-3 text-xs text-muted-foreground">
-                Your message is delivered straight to my inbox. I usually reply within a day.
-              </p>
+
 
             </form>
           </Reveal>
