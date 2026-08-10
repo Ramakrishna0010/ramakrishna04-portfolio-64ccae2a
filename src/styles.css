@@ -267,4 +267,15 @@
     opacity: 1 !important;
     transform: none !important;
   }
+  .photo-tilt,
+  .photo-frame,
+  .photo-img {
+    animation: none !important;
+    transform: none !important;
+  }
+  .photo-aura {
+    animation: none !important;
+    opacity: 0.25 !important;
+  }
 }
+
