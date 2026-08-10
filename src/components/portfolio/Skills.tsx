@@ -97,7 +97,7 @@ export function Skills() {
                 <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-violet/40 bg-violet/10 text-violet">
                   <Sparkles size={18} />
                 </span>
-                <h3 className="text-base font-semibold">Currently Expanding</h3>
+                <h3 className="text-base font-semibold">Currently Learning</h3>
               </div>
               <p className="mt-3 text-xs text-muted-foreground">
                 Actively learning — not presented as professional experience.
