@@ -16,9 +16,10 @@ const repos = [
 
 export function EducationAndPresence() {
   return (
-    <section className="relative py-20 sm:py-28">
+    <section id="education" className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5">
         <SectionHeading eyebrow="Education" title="Academic background." />
+
 
         <Reveal className="mt-10">
           <article className="glass-card grid gap-5 p-6 sm:grid-cols-[auto_minmax(0,1fr)] sm:p-8">
