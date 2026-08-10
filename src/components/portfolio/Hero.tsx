@@ -1,5 +1,5 @@
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
-import profile from "@/assets/profile.jpg";
+import profile from "@/assets/headshot.jpg.asset.json";
 import { Reveal } from "./Reveal";
 
 const quickLinks = [
