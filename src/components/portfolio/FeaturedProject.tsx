@@ -96,16 +96,41 @@ export function FeaturedProject() {
                   ))}
                 </ul>
 
-                <Link
-                  to="/projects/car-wash-management-system"
-                  className="glow-ring group mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform duration-200 hover:-translate-y-0.5"
-                >
-                  Explore Case Study
-                  <ArrowUpRight
-                    size={16}
-                    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  />
-                </Link>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link
+                    to="/projects/car-wash-management-system"
+                    className="glow-ring group inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform duration-200 hover:-translate-y-0.5"
+                  >
+                    View Project
+                    <ArrowUpRight
+                      size={16}
+                      className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    />
+                  </Link>
+                  {githubRepoUrl ? (
+                    <a
+                      href={githubRepoUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-2 px-5 py-3 text-sm font-semibold transition-colors hover:border-primary/50 hover:bg-accent"
+                    >
+                      <Github size={16} />
+                      GitHub
+                    </a>
+                  ) : null}
+                  {liveDemoUrl ? (
+                    <a
+                      href={liveDemoUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-2 px-5 py-3 text-sm font-semibold transition-colors hover:border-primary/50 hover:bg-accent"
+                    >
+                      Live Demo
+                      <ArrowUpRight size={16} />
+                    </a>
+                  ) : null}
+                </div>
+
               </div>
             </div>
           </article>
