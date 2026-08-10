@@ -1,7 +1,12 @@
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import profile from "@/assets/headshot.jpg.asset.json";
 import { Reveal } from "./Reveal";
 import { ProfilePhoto } from "./ProfilePhoto";
+
+// Resume download: drop the PDF at `public/resume.pdf` and it will be served
+// from this path automatically. No resume file exists in the project yet.
+const RESUME_URL = "/resume.pdf";
+
 
 
 const quickLinks = [
