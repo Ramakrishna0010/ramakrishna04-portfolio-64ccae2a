@@ -49,15 +49,15 @@ export function Hero() {
 
           <Reveal delay={160}>
             <p className="mt-6 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-              I&apos;m Mettu Ramakrishna Reddy — a Software Engineer building full-stack
-              applications with ASP.NET Core, C#, Angular, REST APIs, Entity Framework Core, SQL
-              databases and secure authentication. Currently expanding into Java, Spring Boot,
-              Python and Generative AI.
+              I&apos;m Mettu Ramakrishna Reddy — a Software Engineer specializing in C#, ASP.NET
+              Core, Angular, REST APIs, Entity Framework Core, and SQL databases. I build practical
+              full-stack applications with a focus on clean architecture, secure authentication, and
+              maintainable code.
             </p>
           </Reveal>
 
           <Reveal delay={240}>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
                 href="/#projects"
                 className="glow-ring group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform duration-200 hover:-translate-y-0.5"
@@ -71,8 +71,17 @@ export function Hero() {
               >
                 Contact Me
               </a>
+              <a
+                href={RESUME_URL}
+                download
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-6 py-3 text-sm font-semibold transition-colors hover:bg-primary/20"
+              >
+                <Download size={16} />
+                Download Resume
+              </a>
             </div>
           </Reveal>
+
 
           <Reveal delay={320}>
             <ul className="mt-8 flex items-center gap-3">
