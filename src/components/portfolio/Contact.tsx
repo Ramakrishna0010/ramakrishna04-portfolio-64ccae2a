@@ -1,7 +1,14 @@
 import { useState, type FormEvent } from "react";
+import emailjs from "@emailjs/browser";
 import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { toast } from "sonner";
 import { Reveal } from "./Reveal";
+
+// EmailJS publishable credentials (safe to ship in client code).
+const EMAILJS_SERVICE_ID = "service_eukw398";
+const EMAILJS_TEMPLATE_ID = "template_6m0dyll";
+const EMAILJS_PUBLIC_KEY = "-xKIiCsnesAD4d5KT";
+
 
 const details = [
   {
@@ -34,20 +41,37 @@ const fields = [
 
 export function Contact() {
   const [values, setValues] = useState({ name: "", email: "", subject: "", message: "" });
+  const [sending, setSending] = useState(false);
 
-  // No mail backend is connected yet. This handler opens the visitor's email
-  // client with the message pre-filled, so nothing is silently dropped.
-  // Swap this for Formspree / EmailJS / a server function when available.
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const body = `Name: ${values.name}\nEmail: ${values.email}\n\n${values.message}`;
-    window.location.href = `mailto:ramakrishnamettu4@gmail.com?subject=${encodeURIComponent(
-      values.subject || "Portfolio enquiry",
-    )}&body=${encodeURIComponent(body)}`;
-    toast("Opening your email app", {
-      description: "No mail server is connected yet, so the message opens pre-filled in your email client.",
-    });
+    setSending(true);
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: values.name,
+          from_email: values.email,
+          reply_to: values.email,
+          subject: values.subject || "Portfolio enquiry",
+          message: values.message,
+          to_email: "ramakrishnamettu4@gmail.com",
+
+        },
+        { publicKey: EMAILJS_PUBLIC_KEY },
+      );
+      toast.success("Message sent", { description: "Thanks — I'll get back to you soon." });
+      setValues({ name: "", email: "", subject: "", message: "" });
+    } catch {
+      toast.error("Couldn't send your message", {
+        description: "Please try again, or email ramakrishnamettu4@gmail.com directly.",
+      });
+    } finally {
+      setSending(false);
+    }
   }
+
 
   return (
     <section id="contact" className="relative overflow-hidden py-20 sm:py-28">
@@ -137,14 +161,15 @@ export function Contact() {
 
               <button
                 type="submit"
-                className="glow-ring mt-6 w-full rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform duration-200 hover:-translate-y-0.5 sm:w-auto sm:px-8"
+                disabled={sending}
+                className="glow-ring mt-6 w-full rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform duration-200 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 sm:w-auto sm:px-8"
               >
-                Send Message
+                {sending ? "Sending…" : "Send Message"}
               </button>
               <p className="mt-3 text-xs text-muted-foreground">
-                No mail backend is connected yet — submitting opens your email client with the
-                message pre-filled. Ready to wire up to Formspree, EmailJS or a custom backend.
+                Your message is delivered straight to my inbox. I usually reply within a day.
               </p>
+
             </form>
           </Reveal>
         </div>
