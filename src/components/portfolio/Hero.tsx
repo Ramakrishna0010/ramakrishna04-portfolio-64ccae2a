@@ -1,6 +1,8 @@
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import profile from "@/assets/headshot.jpg.asset.json";
 import { Reveal } from "./Reveal";
+import { ProfilePhoto } from "./ProfilePhoto";
+
 
 const quickLinks = [
   { href: "https://github.com/Ramakrishna0010", label: "GitHub", Icon: Github },
@@ -88,18 +90,11 @@ export function Hero() {
 
         <Reveal delay={180} className="mx-auto w-full max-w-xs sm:max-w-sm">
           <div className="relative">
-            <div
-              aria-hidden
-              className="absolute -inset-4 rounded-[2rem] bg-[var(--gradient-accent)] opacity-25 blur-2xl"
-            />
-            <img
+            <ProfilePhoto
               src={profile.url}
-              width={1265}
-              height={1600}
               alt="Portrait of Mettu Ramakrishna Reddy, Software Engineer"
-              className="relative aspect-[4/5] w-full rounded-[1.75rem] border border-border object-cover object-top"
             />
-            <div className="glass-card absolute -bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-3 px-4 py-2.5 whitespace-nowrap">
+            <div className="glass-card absolute -bottom-5 left-1/2 z-10 flex -translate-x-1/2 items-center gap-3 px-4 py-2.5 whitespace-nowrap">
               <span className="h-2 w-2 rounded-full bg-primary" />
               <span className="font-mono text-[11px] tracking-wide text-muted-foreground">
                 Hyderabad, India · Open to opportunities
@@ -107,6 +102,7 @@ export function Hero() {
             </div>
           </div>
         </Reveal>
+
       </div>
     </section>
   );

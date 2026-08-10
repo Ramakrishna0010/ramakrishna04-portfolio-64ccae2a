@@ -154,6 +154,104 @@
   border-radius: 9999px;
 }
 
+@keyframes photo-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0) scale(1.02);
+  }
+}
+
+@keyframes aura-drift {
+  0%,
+  100% {
+    opacity: 0.28;
+    transform: translate3d(-2%, -1%, 0) scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: translate3d(2%, 2%, 0) scale(1.06);
+  }
+}
+
+@keyframes border-spin {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@utility photo-stage {
+  perspective: 900px;
+}
+
+@utility photo-aura {
+  background: conic-gradient(
+    from 0deg,
+    oklch(0.68 0.17 253 / 0.85),
+    oklch(0.66 0.2 300 / 0.85),
+    oklch(0.68 0.17 253 / 0.85)
+  );
+  filter: blur(46px);
+  opacity: 0.32;
+  animation: aura-drift 9s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+@utility photo-tilt {
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  transform: perspective(900px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+@utility photo-frame {
+  animation: photo-float 4.5s ease-in-out infinite;
+  background: conic-gradient(
+    from var(--border-angle),
+    oklch(0.68 0.17 253 / 0.55),
+    oklch(0.66 0.2 300 / 0.55),
+    oklch(0.3 0.016 262 / 0.35) 55%,
+    oklch(0.68 0.17 253 / 0.55)
+  );
+  will-change: transform;
+}
+
+.photo-frame {
+  animation:
+    photo-float 4.5s ease-in-out infinite,
+    border-spin 12s linear infinite;
+}
+
+@utility photo-img {
+  background: var(--surface);
+  transition:
+    filter 0.4s ease,
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.group:hover .photo-img {
+  filter: brightness(1.06);
+  transform: scale(1.03);
+  box-shadow: 0 0 0 1px oklch(0.68 0.17 253 / 0.25), 0 30px 80px -30px oklch(0.68 0.17 253 / 0.6);
+}
+
+.group:hover ~ .photo-aura,
+.photo-stage:hover .photo-aura {
+  opacity: 0.5;
+}
+
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -169,4 +267,15 @@
     opacity: 1 !important;
     transform: none !important;
   }
+  .photo-tilt,
+  .photo-frame,
+  .photo-img {
+    animation: none !important;
+    transform: none !important;
+  }
+  .photo-aura {
+    animation: none !important;
+    opacity: 0.25 !important;
+  }
 }
+
