@@ -1,13 +1,10 @@
 import { useState, type FormEvent } from "react";
-import emailjs from "@emailjs/browser";
+import { useServerFn } from "@tanstack/react-start";
 import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { toast } from "sonner";
 import { Reveal } from "./Reveal";
+import { sendContactEmail } from "@/lib/contact.functions";
 
-// EmailJS publishable credentials (safe to ship in client code).
-const EMAILJS_SERVICE_ID = "service_eukw398";
-const EMAILJS_TEMPLATE_ID = "template_6m0dyll";
-const EMAILJS_PUBLIC_KEY = "-xKIiCsnesAD4d5KT";
 
 
 const details = [
