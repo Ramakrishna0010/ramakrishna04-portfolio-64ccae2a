@@ -30,7 +30,7 @@ export const stack = {
 
 export const features = [
   "User authentication",
-  "JWT-based authorization",
+  "JWT authorization",
   "Role-based access",
   "Customer management",
   "Vehicle management",
