@@ -4,25 +4,27 @@ import { Reveal, SectionHeading } from "./Reveal";
 const highlights = [
   {
     Icon: Layers,
-    title: ".NET full-stack development",
-    body: "Building applications end to end with ASP.NET Core and Angular, from data model to UI.",
+    title: "Full-stack .NET",
+    body: "ASP.NET Core + Angular applications, built end to end.",
   },
   {
     Icon: Braces,
-    title: "Backend & API engineering",
-    body: "Designing REST APIs with C#, Web API and Entity Framework Core, documented via Swagger.",
+    title: "Backend & APIs",
+    body: "REST APIs in C# with Web API and Entity Framework Core.",
   },
   {
     Icon: Database,
-    title: "Database integration",
-    body: "Relational schema design and data access across SQL Server and MySQL using EF Core and LINQ.",
+    title: "Databases",
+    body: "SQL schema design and data access with EF Core and LINQ.",
   },
   {
     Icon: ShieldCheck,
-    title: "Auth & clean code",
-    body: "JWT authentication with role-based authorization, guided by OOP and SOLID principles.",
+    title: "Secure & clean code",
+    body: "JWT authentication, role-based authorization, OOP and SOLID.",
   },
 ];
+
+const learning = ["Java", "Spring Boot", "Python", "Generative AI"];
 
 const stats = [
   { value: "1+ Year", label: "Professional Experience" },
@@ -30,6 +32,7 @@ const stats = [
   { value: "Full Stack", label: "Backend + Frontend" },
   { value: "Problem Solver", label: "DSA & Software Engineering" },
 ];
+
 
 export function About() {
   return (
