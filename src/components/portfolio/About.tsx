@@ -41,7 +41,7 @@ export function About() {
         <SectionHeading
           eyebrow="About"
           title="A Software Engineer focused on practical, maintainable systems."
-          description="I work across the .NET stack — writing C# services and Web APIs, modelling data with Entity Framework Core, and building Angular frontends that consume them. My focus is on readable code, sound architecture and secure access control, alongside continuous learning in Java, Spring Boot and Generative AI."
+          description="I build across the .NET stack: C# services and REST APIs with ASP.NET Core, data access with Entity Framework Core over SQL, and Angular frontends — secured with JWT authentication and role-based authorization, and written with OOP and SOLID principles in mind."
         />
 
         <div className="mt-12 grid gap-4 sm:grid-cols-2">
@@ -55,6 +55,23 @@ export function About() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal className="mt-4">
+          <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-dashed border-violet/45 bg-violet/5 p-5">
+            <span className="font-mono text-[10px] tracking-[0.18em] text-muted-foreground uppercase">
+              Currently expanding into
+            </span>
+            {learning.map((l) => (
+              <span
+                key={l}
+                className="rounded-lg border border-violet/30 bg-violet/10 px-2.5 py-1 text-xs text-foreground/85"
+              >
+                {l}
+              </span>
+            ))}
+          </div>
+        </Reveal>
+
 
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((s, i) => (
