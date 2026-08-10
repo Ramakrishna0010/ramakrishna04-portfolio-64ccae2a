@@ -21,17 +21,12 @@ export const architecture = [
 
 
 export const stack = {
-  Backend: [
-    "ASP.NET Core Web API",
-    "C#",
-    "Entity Framework Core",
-    "MySQL",
-    "JWT Authentication",
-    "Role-Based Authorization",
-  ],
+  Backend: ["ASP.NET Core Web API", "C#", "Entity Framework Core", "MySQL"],
   Frontend: ["Angular", "TypeScript", "HTML", "CSS"],
-  Additional: ["REST API", "MailKit", "Swagger", "Postman"],
+  Security: ["JWT Authentication", "Role-Based Authorization"],
+  Additional: ["Swagger", "Postman", "MailKit"],
 };
+
 
 export const features = [
   "User authentication",
