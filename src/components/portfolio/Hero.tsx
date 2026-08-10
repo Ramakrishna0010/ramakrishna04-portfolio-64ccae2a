@@ -1,5 +1,5 @@
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
-import profile from "@/assets/profile.jpg";
+import profile from "@/assets/headshot.jpg.asset.json";
 import { Reveal } from "./Reveal";
 
 const quickLinks = [
@@ -93,9 +93,9 @@ export function Hero() {
               className="absolute -inset-4 rounded-[2rem] bg-[var(--gradient-accent)] opacity-25 blur-2xl"
             />
             <img
-              src={profile}
-              width={896}
-              height={1152}
+              src={profile.url}
+              width={1265}
+              height={1600}
               alt="Portrait of Mettu Ramakrishna Reddy, Software Engineer"
               className="relative aspect-[4/5] w-full rounded-[1.75rem] border border-border object-cover object-top"
             />
