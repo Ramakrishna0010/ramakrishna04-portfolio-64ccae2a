@@ -153,11 +153,9 @@ export function Contact() {
                 disabled={sending}
                 className="glow-ring mt-6 w-full rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform duration-200 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 sm:w-auto sm:px-8"
               >
-                {sending ? "Sending…" : "Send Message"}
+                {sending ? "Sending..." : "Send Message"}
               </button>
-              <p className="mt-3 text-xs text-muted-foreground">
-                Your message is delivered straight to my inbox. I usually reply within a day.
-              </p>
+
 
             </form>
           </Reveal>
