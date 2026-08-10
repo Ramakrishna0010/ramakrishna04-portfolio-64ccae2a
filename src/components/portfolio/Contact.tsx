@@ -41,20 +41,37 @@ const fields = [
 
 export function Contact() {
   const [values, setValues] = useState({ name: "", email: "", subject: "", message: "" });
+  const [sending, setSending] = useState(false);
 
-  // No mail backend is connected yet. This handler opens the visitor's email
-  // client with the message pre-filled, so nothing is silently dropped.
-  // Swap this for Formspree / EmailJS / a server function when available.
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const body = `Name: ${values.name}\nEmail: ${values.email}\n\n${values.message}`;
-    window.location.href = `mailto:ramakrishnamettu4@gmail.com?subject=${encodeURIComponent(
-      values.subject || "Portfolio enquiry",
-    )}&body=${encodeURIComponent(body)}`;
-    toast("Opening your email app", {
-      description: "No mail server is connected yet, so the message opens pre-filled in your email client.",
-    });
+    setSending(true);
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: values.name,
+          from_email: values.email,
+          reply_to: values.email,
+          subject: values.subject || "Portfolio enquiry",
+          message: values.message,
+          to_email: "ramakrishnamettu4@gmail.com",
+several: "",
+        },
+        { publicKey: EMAILJS_PUBLIC_KEY },
+      );
+      toast.success("Message sent", { description: "Thanks — I'll get back to you soon." });
+      setValues({ name: "", email: "", subject: "", message: "" });
+    } catch {
+      toast.error("Couldn't send your message", {
+        description: "Please try again, or email ramakrishnamettu4@gmail.com directly.",
+      });
+    } finally {
+      setSending(false);
+    }
   }
+
 
   return (
     <section id="contact" className="relative overflow-hidden py-20 sm:py-28">
