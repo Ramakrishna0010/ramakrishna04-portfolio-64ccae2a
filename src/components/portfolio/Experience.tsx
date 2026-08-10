@@ -43,8 +43,9 @@ export function Experience() {
                   <p className="mt-1 text-sm text-primary">Capgemini</p>
                 </div>
                 <span className="shrink-0 rounded-full border border-border bg-surface-2 px-3 py-1 font-mono text-[11px] text-muted-foreground">
-                  Aug 26, 2025 — Sep 4, 2026
+                  Aug 26, 2025 — Present
                 </span>
+
               </div>
 
               <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
