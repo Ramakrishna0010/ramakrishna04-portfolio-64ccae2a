@@ -1,13 +1,10 @@
 import { useState, type FormEvent } from "react";
-import emailjs from "@emailjs/browser";
+import { useServerFn } from "@tanstack/react-start";
 import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { toast } from "sonner";
 import { Reveal } from "./Reveal";
+import { sendContactEmail } from "@/lib/contact.functions";
 
-// EmailJS publishable credentials (safe to ship in client code).
-const EMAILJS_SERVICE_ID = "service_eukw398";
-const EMAILJS_TEMPLATE_ID = "template_6m0dyll";
-const EMAILJS_PUBLIC_KEY = "-xKIiCsnesAD4d5KT";
 
 
 const details = [
@@ -42,28 +39,17 @@ const fields = [
 export function Contact() {
   const [values, setValues] = useState({ name: "", email: "", subject: "", message: "" });
   const [sending, setSending] = useState(false);
+  const send = useServerFn(sendContactEmail);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSending(true);
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          from_name: values.name,
-          from_email: values.email,
-          reply_to: values.email,
-          subject: values.subject || "Portfolio enquiry",
-          message: values.message,
-          to_email: "ramakrishnamettu4@gmail.com",
-
-        },
-        { publicKey: EMAILJS_PUBLIC_KEY },
-      );
+      await send({ data: values });
       toast.success("Message sent", { description: "Thanks — I'll get back to you soon." });
       setValues({ name: "", email: "", subject: "", message: "" });
-    } catch {
+    } catch (err) {
+      console.error("Contact form send failed", err);
       toast.error("Couldn't send your message", {
         description: "Please try again, or email ramakrishnamettu4@gmail.com directly.",
       });
@@ -71,6 +57,8 @@ export function Contact() {
       setSending(false);
     }
   }
+
+
 
 
   return (
