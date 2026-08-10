@@ -51,16 +51,17 @@ export function EducationAndPresence() {
             {[
               {
                 Icon: Github,
-                label: "GitHub",
-                handle: "@Ramakrishna0010",
+                label: "View GitHub",
+                handle: "github.com/Ramakrishna0010",
                 href: "https://github.com/Ramakrishna0010",
               },
               {
                 Icon: Linkedin,
-                label: "LinkedIn",
-                handle: "mettu-ramakrishna-reddy",
+                label: "View LinkedIn",
+                handle: "linkedin.com/in/mettu-ramakrishna-reddy",
                 href: "https://www.linkedin.com/in/mettu-ramakrishna-reddy",
               },
+
             ].map((p, i) => (
               <Reveal key={p.label} delay={i * 70}>
                 <a
