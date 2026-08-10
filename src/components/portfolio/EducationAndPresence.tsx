@@ -52,13 +52,13 @@ export function EducationAndPresence() {
               {
                 Icon: Github,
                 label: "View GitHub",
-                handle: "github.com/Ramakrishna0010",
+                handle: "Ramakrishna0010",
                 href: "https://github.com/Ramakrishna0010",
               },
               {
                 Icon: Linkedin,
                 label: "View LinkedIn",
-                handle: "linkedin.com/in/mettu-ramakrishna-reddy",
+                handle: "mettu-ramakrishna-reddy",
                 href: "https://www.linkedin.com/in/mettu-ramakrishna-reddy",
               },
 
