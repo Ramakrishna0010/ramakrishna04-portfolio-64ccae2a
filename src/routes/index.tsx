@@ -1,24 +1,68 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Navbar } from "@/components/portfolio/Navbar";
+import { Hero } from "@/components/portfolio/Hero";
+import { About } from "@/components/portfolio/About";
+import { Experience } from "@/components/portfolio/Experience";
+import { Skills } from "@/components/portfolio/Skills";
+import { FeaturedProject } from "@/components/portfolio/FeaturedProject";
+import { Services } from "@/components/portfolio/Services";
+import { EducationAndPresence } from "@/components/portfolio/EducationAndPresence";
+import { Contact, Footer } from "@/components/portfolio/Contact";
+import { Toaster } from "@/components/ui/sonner";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "Mettu Ramakrishna Reddy | Software Engineer";
+const description =
+  "Software Engineer specializing in C#, ASP.NET Core, Angular, REST APIs, SQL, and full-stack web development.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "profile" },
+      { property: "og:url", content: "/" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Mettu Ramakrishna Reddy",
+          jobTitle: "Software Engineer",
+          email: "mailto:ramakrishnamettu4@gmail.com",
+          address: { "@type": "PostalAddress", addressLocality: "Hyderabad", addressRegion: "Telangana", addressCountry: "IN" },
+          sameAs: [
+            "https://github.com/Ramakrishna0010",
+            "https://www.linkedin.com/in/mettu-ramakrishna-reddy",
+          ],
+        }),
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <Skills />
+        <FeaturedProject />
+        <Services />
+        <EducationAndPresence />
+        <Contact />
+      </main>
+      <Footer />
+      <Toaster />
     </div>
   );
 }
