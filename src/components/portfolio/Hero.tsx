@@ -1,6 +1,8 @@
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import profile from "@/assets/headshot.jpg.asset.json";
 import { Reveal } from "./Reveal";
+import { ProfilePhoto } from "./ProfilePhoto";
+
 
 const quickLinks = [
   { href: "https://github.com/Ramakrishna0010", label: "GitHub", Icon: Github },
