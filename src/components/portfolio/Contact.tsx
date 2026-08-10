@@ -46,17 +46,18 @@ export function Contact() {
     setSending(true);
     try {
       await send({ data: values });
-      toast.success("Message sent", { description: "Thanks — I'll get back to you soon." });
+      toast.success("Message sent successfully.");
       setValues({ name: "", email: "", subject: "", message: "" });
     } catch (err) {
       console.error("Contact form send failed", err);
-      toast.error("Couldn't send your message", {
-        description: "Please try again, or email ramakrishnamettu4@gmail.com directly.",
+      toast.error("Failed to send. Please try again or email me directly.", {
+        description: "ramakrishnamettu4@gmail.com",
       });
     } finally {
       setSending(false);
     }
   }
+
 
 
 
