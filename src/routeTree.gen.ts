@@ -10,33 +10,44 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProjectsCarWashManagementSystemRouteImport } from './routes/projects.car-wash-management-system'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectsCarWashManagementSystemRoute =
+  ProjectsCarWashManagementSystemRouteImport.update({
+    id: '/projects/car-wash-management-system',
+    path: '/projects/car-wash-management-system',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/projects/car-wash-management-system': typeof ProjectsCarWashManagementSystemRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/projects/car-wash-management-system': typeof ProjectsCarWashManagementSystemRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/projects/car-wash-management-system': typeof ProjectsCarWashManagementSystemRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/projects/car-wash-management-system'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/projects/car-wash-management-system'
+  id: '__root__' | '/' | '/projects/car-wash-management-system'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ProjectsCarWashManagementSystemRoute: typeof ProjectsCarWashManagementSystemRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +59,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/car-wash-management-system': {
+      id: '/projects/car-wash-management-system'
+      path: '/projects/car-wash-management-system'
+      fullPath: '/projects/car-wash-management-system'
+      preLoaderRoute: typeof ProjectsCarWashManagementSystemRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ProjectsCarWashManagementSystemRoute: ProjectsCarWashManagementSystemRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
