@@ -1,8 +1,8 @@
 import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
-import heroPanel from "@/assets/panel-hero.jpg.asset.json";
+import profile from "@/assets/headshot.jpg.asset.json";
 import resume from "@/assets/resume.pdf.asset.json";
 import { Reveal } from "./Reveal";
-import { CinematicVisual } from "./CinematicVisual";
+import { ProfilePhoto } from "./ProfilePhoto";
 
 const RESUME_URL = resume.url;
 
@@ -102,20 +102,19 @@ export function Hero() {
         </div>
 
         <Reveal delay={180} className="mx-auto w-full max-w-xs sm:max-w-sm">
-          <CinematicVisual
-            src={heroPanel.url}
-            alt="Mettu Ramakrishna Reddy, Software Engineer, at his desk in a modern development workspace"
-            aspect="aspect-[4/5]"
-            priority
-            imageClassName="object-[55%_center]"
-            caption="Hyderabad, India · Open to opportunities"
-            chips={[
-              { label: ".NET Full Stack", position: "left-4 top-6 sm:left-6 sm:top-8", depth: 30 },
-              { label: "C# · Angular · SQL", position: "right-4 top-10 sm:right-6", depth: 20 },
-            ]}
-          />
+          <div className="relative">
+            <ProfilePhoto
+              src={profile.url}
+              alt="Portrait of Mettu Ramakrishna Reddy, Software Engineer"
+            />
+            <div className="glass-card absolute -bottom-5 left-1/2 z-10 flex -translate-x-1/2 items-center gap-3 px-4 py-2.5 whitespace-nowrap">
+              <span className="h-2 w-2 rounded-full bg-primary" />
+              <span className="font-mono text-[11px] tracking-wide text-muted-foreground">
+                Hyderabad, India · Open to opportunities
+              </span>
+            </div>
+          </div>
         </Reveal>
-
 
       </div>
     </section>
