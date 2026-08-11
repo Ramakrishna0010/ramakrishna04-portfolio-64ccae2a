@@ -1,5 +1,8 @@
 import { Cpu, Database, GitBranch, Layout, Server, Sparkles } from "lucide-react";
+import skillsPanel from "@/assets/panel-skills.jpg.asset.json";
+import aiPanel from "@/assets/panel-ai.jpg.asset.json";
 import { Reveal, SectionHeading } from "./Reveal";
+import { CinematicVisual } from "./CinematicVisual";
 
 const groups = [
   {
