@@ -101,13 +101,13 @@ export function Hero() {
           </Reveal>
         </div>
 
-        <Reveal delay={180} className="mx-auto w-full max-w-sm sm:max-w-md lg:max-w-none">
+        <Reveal delay={180} className="mx-auto w-full max-w-xs sm:max-w-sm">
           <CinematicVisual
             src={heroPanel.url}
             alt="Mettu Ramakrishna Reddy, Software Engineer, at his desk in a modern development workspace"
-            aspect="aspect-[4/3]"
+            aspect="aspect-[4/5]"
             priority
-            imageClassName="object-[62%_center]"
+            imageClassName="object-[55%_center]"
             caption="Hyderabad, India · Open to opportunities"
             chips={[
               { label: ".NET Full Stack", position: "left-4 top-6 sm:left-6 sm:top-8", depth: 30 },
