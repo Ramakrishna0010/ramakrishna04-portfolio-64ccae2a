@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Check, Github } from "lucide-react";
+import projectPanel from "@/assets/panel-project.jpg.asset.json";
 import { Reveal, SectionHeading } from "./Reveal";
+import { CinematicVisual } from "./CinematicVisual";
 import {
   architecture,
   features,
