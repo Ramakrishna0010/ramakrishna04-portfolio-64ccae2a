@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Check, Github } from "lucide-react";
+import projectPanel from "@/assets/panel-project.jpg.asset.json";
 import { Reveal, SectionHeading } from "./Reveal";
+import { CinematicVisual } from "./CinematicVisual";
 import {
   architecture,
   features,
@@ -21,7 +23,21 @@ export function FeaturedProject() {
           description="A full-stack web application designed to manage car wash operations — customers, vehicles, orders, payments, users and washers."
         />
 
+        <Reveal delay={80} className="mt-10">
+          <CinematicVisual
+            src={projectPanel.url}
+            alt="Architecture overview of the Car Wash Management System: Angular frontend, ASP.NET Core Web API, SQL database, JWT authentication and role-based access"
+            aspect="aspect-[16/10] sm:aspect-[3/2]"
+            caption="Angular · ASP.NET Core Web API · SQL"
+            chips={[
+              { label: "Role-Based Access", position: "left-4 bottom-24 sm:left-8 sm:bottom-28", depth: 30 },
+              { label: "REST API", position: "right-5 top-8 sm:right-12 sm:top-12", depth: 22 },
+            ]}
+          />
+        </Reveal>
+
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
+
           {[
             { label: "Problem", body: problem },
             { label: "Solution", body: solution },

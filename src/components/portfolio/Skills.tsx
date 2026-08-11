@@ -1,5 +1,8 @@
 import { Cpu, Database, GitBranch, Layout, Server, Sparkles } from "lucide-react";
+import skillsPanel from "@/assets/panel-skills.jpg.asset.json";
+import aiPanel from "@/assets/panel-ai.jpg.asset.json";
 import { Reveal, SectionHeading } from "./Reveal";
+import { CinematicVisual } from "./CinematicVisual";
 
 const groups = [
   {
@@ -67,7 +70,22 @@ export function Skills() {
           description="Core professional technologies, grouped by where they sit in the application."
         />
 
+        <Reveal delay={80} className="mt-10">
+          <CinematicVisual
+            src={skillsPanel.url}
+            alt="Mettu Ramakrishna Reddy presenting his core technology stack: C#, ASP.NET Core, Angular, SQL Server, REST APIs, LINQ, Azure, Git and JWT"
+            aspect="aspect-[16/10] sm:aspect-[3/2]"
+            caption="Core stack · C# · ASP.NET Core · Angular · SQL"
+            chips={[
+              { label: "REST APIs", position: "left-4 top-6 sm:left-8 sm:top-10", depth: 30 },
+              { label: "Entity Framework Core", position: "right-4 top-8 sm:right-10", depth: 22 },
+              { label: "JWT Auth", position: "bottom-16 right-6 sm:bottom-20 sm:right-14", depth: 34 },
+            ]}
+          />
+        </Reveal>
+
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+
           {groups.map((g, i) => (
             <Reveal key={g.title} delay={i * 60}>
               <article className="glass-card h-full p-6 transition-transform duration-300 hover:-translate-y-1 hover:border-primary/40">
@@ -115,6 +133,21 @@ export function Skills() {
             </article>
           </Reveal>
         </div>
+
+        <Reveal delay={120} className="mt-10">
+          <CinematicVisual
+            src={aiPanel.url}
+            alt="Mettu Ramakrishna Reddy exploring AI engineering: Python, Generative AI, Prompt Engineering, LangChain and RAG"
+            aspect="aspect-[16/10] sm:aspect-[3/2]"
+            caption="Currently expanding · AI engineering"
+            chips={[
+              { label: "Prompt Engineering", position: "left-4 top-6 sm:left-8 sm:top-10", depth: 28 },
+              { label: "LangChain", position: "right-5 top-10 sm:right-12", depth: 20 },
+              { label: "RAG", position: "bottom-16 left-8 sm:bottom-20 sm:left-16", depth: 34 },
+            ]}
+          />
+        </Reveal>
+
       </div>
     </section>
   );
