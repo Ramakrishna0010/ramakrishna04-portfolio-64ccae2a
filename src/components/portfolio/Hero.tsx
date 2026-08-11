@@ -1,8 +1,8 @@
 import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
-import profile from "@/assets/headshot.jpg.asset.json";
+import heroPanel from "@/assets/panel-hero.jpg.asset.json";
 import resume from "@/assets/resume.pdf.asset.json";
 import { Reveal } from "./Reveal";
-import { ProfilePhoto } from "./ProfilePhoto";
+import { CinematicVisual } from "./CinematicVisual";
 
 const RESUME_URL = resume.url;
 
