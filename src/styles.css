@@ -383,5 +383,19 @@
     animation: none !important;
     opacity: 0.25 !important;
   }
+  .cine-tilt,
+  .cine-frame,
+  .cine-chip,
+  .cine-img {
+    animation: none !important;
+    transform: none !important;
+  }
+  .cine-sheen {
+    display: none !important;
+  }
+  .cine-aura {
+    animation: none !important;
+    opacity: 0.2 !important;
+  }
 }
 
