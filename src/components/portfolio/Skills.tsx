@@ -133,6 +133,21 @@ export function Skills() {
             </article>
           </Reveal>
         </div>
+
+        <Reveal delay={120} className="mt-10">
+          <CinematicVisual
+            src={aiPanel.url}
+            alt="Mettu Ramakrishna Reddy exploring AI engineering: Python, Generative AI, Prompt Engineering, LangChain and RAG"
+            aspect="aspect-[16/10] sm:aspect-[3/2]"
+            caption="Currently expanding · AI engineering"
+            chips={[
+              { label: "Prompt Engineering", position: "left-4 top-6 sm:left-8 sm:top-10", depth: 28 },
+              { label: "LangChain", position: "right-5 top-10 sm:right-12", depth: 20 },
+              { label: "RAG", position: "bottom-16 left-8 sm:bottom-20 sm:left-16", depth: 34 },
+            ]}
+          />
+        </Reveal>
+
       </div>
     </section>
   );
