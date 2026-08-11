@@ -251,6 +251,112 @@
   opacity: 0.5;
 }
 
+/* ---- Cinematic layered visuals ---- */
+@keyframes chip-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, calc(var(--depth) * 1px));
+  }
+  50% {
+    transform: translate3d(0, -7px, calc(var(--depth) * 1px));
+  }
+}
+
+@keyframes sheen-sweep {
+  0% {
+    transform: translateX(-120%) skewX(-12deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.5;
+  }
+  45% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(160%) skewX(-12deg);
+    opacity: 0;
+  }
+}
+
+@utility cine-stage {
+  --mx: 0;
+  --my: 0;
+  --sy: 0;
+  perspective: 1100px;
+}
+
+@utility cine-aura {
+  background: conic-gradient(
+    from 0deg,
+    oklch(0.68 0.17 253 / 0.7),
+    oklch(0.66 0.2 300 / 0.7),
+    oklch(0.68 0.17 253 / 0.7)
+  );
+  filter: blur(52px);
+  opacity: 0.24;
+  animation: aura-drift 11s ease-in-out infinite;
+  transition: opacity 0.5s ease;
+  will-change: opacity, transform;
+}
+
+.cine-stage:hover .cine-aura {
+  opacity: 0.42;
+}
+
+@utility cine-tilt {
+  transform: rotateX(calc(var(--my) * -5deg)) rotateY(calc(var(--mx) * 5deg))
+    translate3d(calc(var(--mx) * 8px), calc(var(--sy) * -14px), 0);
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+@utility cine-frame {
+  background: conic-gradient(
+    from var(--border-angle),
+    oklch(0.68 0.17 253 / 0.5),
+    oklch(0.66 0.2 300 / 0.5),
+    oklch(0.3 0.016 262 / 0.3) 55%,
+    oklch(0.68 0.17 253 / 0.5)
+  );
+  animation: border-spin 16s linear infinite;
+  transform: translateZ(0);
+}
+
+@utility cine-img {
+  background: var(--surface);
+  transform: scale(1.03) translate3d(calc(var(--mx) * -10px), calc(var(--my) * -8px), 0);
+  transition:
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.4s ease;
+  will-change: transform;
+}
+
+.cine-stage:hover .cine-img {
+  filter: brightness(1.05) saturate(1.03);
+  transform: scale(1.05) translate3d(calc(var(--mx) * -12px), calc(var(--my) * -10px), 0);
+}
+
+@utility cine-sheen {
+  background: linear-gradient(
+    100deg,
+    transparent 35%,
+    oklch(0.98 0 0 / 0.1) 50%,
+    transparent 65%
+  );
+  animation: sheen-sweep 9s ease-in-out infinite;
+}
+
+@utility cine-chip {
+  --depth: 18;
+  transform: translate3d(0, 0, calc(var(--depth) * 1px));
+  animation: chip-float 6s ease-in-out infinite;
+  box-shadow: 0 12px 30px -18px oklch(0.68 0.17 253 / 0.8);
+  will-change: transform;
+}
+
+
 
 @media (prefers-reduced-motion: reduce) {
   html {
